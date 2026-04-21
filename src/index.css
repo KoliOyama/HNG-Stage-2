@@ -30,7 +30,7 @@
     --int-primary-light: #9277FF;
     --int-danger: #EC5757;
     --int-danger-light: #FF9797;
-    
+
     /* Secondary Button (Edit) */
     --int-secondary-bg: #F9FAFE;
     --int-secondary-text: #7E88C3;
@@ -47,7 +47,12 @@
     --input-text: #0C0E16;
 
     /* Elevation */
+    /* High Elevation Shadow (Calendars/Dropdowns) 
+     X:0, Y:10, Blur:20, Spread:0, Color: #48549F @ 25% */
     --shadow-variant: 0 10px 20px rgba(72, 84, 159, 0.25);
+    /* Card Shadow (Invoice Items) 
+     X:0, Y:10, Blur:10, Spread:-10, Color: #48549F @ 10% */
+    --shadow-card: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
     --border-default: #DFE3FA;
   }
 
@@ -83,7 +88,9 @@
     --input-text: #FFFFFF;
 
     /* Elevation */
-    --shadow-variant: 0 10px 20px rgba(0, 0, 0, 0.25);
+    /* Per Figma: Shadows do not change color in Dark Mode */
+    --shadow-variant: 0 10px 20px rgba(72, 84, 159, 0.25);
+    --shadow-card: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
     --border-default: #252945;
   }
 
