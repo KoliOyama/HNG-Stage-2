@@ -1,3 +1,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Surface & Backgrounds */
+    --surface-default: #F8F8FB;
+    --surface-card: #FFFFFF;
+    --surface-sidebar: #373B53;
+    --surface-table: #F9FAFE;
+    --surface-footer: #373B53;
+
+    /* Content & Typography */
+    --content-primary: #0C0E16;
+    --content-secondary: #7E88C3;
+    --content-tertiary: #888EB0;
+    --content-inverted: #FFFFFF;
+
+    /* Status Colors */
+    --status-paid: #33D69F;
+    --status-paid-bg: rgba(51, 214, 159, 0.06);
+    --status-pending: #FF8F00;
+    --status-pending-bg: rgba(255, 143, 0, 0.06);
+    --status-draft: #373B53;
+    --status-draft-bg: rgba(55, 59, 83, 0.06);
+
+    /* Interactive Elements */
+    --int-primary: #7C5DFA;
+    --int-primary-light: #9277FF;
+    --int-danger: #EC5757;
+    --int-danger-light: #FF9797;
+    
+    /* Secondary Button (Edit) */
+    --int-secondary-bg: #F9FAFE;
+    --int-secondary-text: #7E88C3;
+    --int-secondary-hover: #DFE3FA;
+
+    /* Draft Button (Save as Draft) */
+    --int-draft-bg: #373B53;
+    --int-draft-text: #888EB0;
+    --int-draft-hover: #0C0E16;
+
+    /* Forms & Inputs */
+    --input-bg: #FFFFFF;
+    --input-border: #DFE3FA;
+    --input-text: #0C0E16;
+
+    /* Elevation */
+    --shadow-variant: 0 10px 20px rgba(72, 84, 159, 0.25);
+    --border-default: #DFE3FA;
+  }
+
+  .dark {
+    /* Surface & Backgrounds */
+    --surface-default: #141625;
+    --surface-card: #1E2139;
+    --surface-sidebar: #1E2139;
+    --surface-table: #252945;
+    --surface-footer: #0C0E16;
+
+    /* Content & Typography */
+    --content-primary: #FFFFFF;
+    --content-secondary: #DFE3FA;
+
+    /* Status Colors (Dark mode overrides) */
+    --status-draft: #DFE3FA;
+    --status-draft-bg: rgba(223, 227, 250, 0.06);
+
+    /* Secondary Button (Dark mode) */
+    --int-secondary-bg: #252945;
+    --int-secondary-text: #DFE3FA;
+    --int-secondary-hover: #FFFFFF;
+
+    /* Draft Button (Dark mode) */
+    --int-draft-bg: #363B53;
+    --int-draft-text: #DFE3FA;
+    --int-draft-hover: #1E2139;
+
+    /* Forms & Inputs */
+    --input-bg: #1E2139;
+    --input-border: #252945;
+    --input-text: #FFFFFF;
+
+    /* Elevation */
+    --shadow-variant: 0 10px 20px rgba(0, 0, 0, 0.25);
+    --border-default: #252945;
+  }
+
+  body {
+    @apply bg-surface-default text-content-primary font-spartan transition-colors duration-300;
+  }
+}
