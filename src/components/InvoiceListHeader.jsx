@@ -11,9 +11,14 @@ const InvoiceListHeader = () => {
             <div>
                 <h1 className="text-h-m md:text-h-l text-content-primary transition-colors">Invoices</h1>
                 <p className="text-body-m text-content-secondary mt-1">
-                    {/* Responsive text: shorter on mobile */}
-                    <span className="hidden md:inline">There are </span>
-                    {invoiceCount} total invoices
+                    {invoiceCount === 0 ? (
+                        'No invoices'
+                    ) : (
+                        <>
+                            <span className="hidden md:inline">There are </span>
+                            {invoiceCount} total invoices
+                        </>
+                    )}
                 </p>
             </div>
 
