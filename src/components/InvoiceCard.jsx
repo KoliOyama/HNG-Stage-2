@@ -10,7 +10,7 @@ const InvoiceCard = ({ invoice }) => {
     return (
         <Link
             to={`/${id}`}
-            className="flex flex-col md:flex-row md:items-center justify-between bg-surface-card p-3 gap-3 rounded-lg shadow-card border border-transparent hover:border-interactive-primary transition-all duration-200"
+            className="flex flex-col md:flex-row md:items-center justify-between bg-surface-card p-3 gap-3 rounded-lg shadow-card border-2 border-transparent hover:border-interactive-primary transition-all duration-200"
         >
             {/* Top row on mobile / Left section on desktop */}
             <div className="flex items-center justify-between md:justify-start md:gap-11">
