@@ -98,3 +98,25 @@
     @apply bg-surface-default text-content-primary font-spartan transition-colors duration-300;
   }
 }
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-spartan text-h-s-variant transition-all duration-200 cursor-pointer h-6 pl-1 pr-2;
+  }
+  
+  .btn-primary   { @apply btn bg-interactive-primary text-content-inverted hover:bg-interactive-primary-light; }
+  .btn-secondary { @apply btn bg-interactive-secondary text-interactive-secondary-text hover:bg-interactive-secondary-hover; }
+  .btn-danger    { @apply btn bg-interactive-danger text-content-inverted hover:bg-interactive-danger-light; }
+  .btn-draft     { @apply btn bg-interactive-draft text-interactive-draft-text hover:bg-interactive-draft-hover; }
+
+  /* Status Badges */
+  .status-badge { 
+    @apply inline-flex items-center justify-center gap-1 rounded-md h-10 text-h-s-variant capitalize w-[104px]; 
+  }
+  .status-badge__dot { @apply w-1 h-1 rounded-full; }
+  
+  .status-badge--paid    { @apply bg-status-paid-muted text-status-paid; }
+  .status-badge--pending { @apply bg-status-pending-muted text-status-pending; }
+  .status-badge--draft   { @apply bg-status-draft-muted text-status-draft; }
+}

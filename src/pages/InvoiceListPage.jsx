@@ -1,11 +1,19 @@
 import React from 'react';
+import InvoiceListHeader from '@/components/InvoiceListHeader';
+import InvoiceCard from '@/components/InvoiceCard';
+import data from '@/data.json';
 
 const InvoiceListPage = () => {
     return (
-        <div>
-            <h1 className="text-h-l text-content-primary">Invoices</h1>
-            {/* Invoice list will go here */}
-        </div>
+        <section className='flex flex-col gap-4 md:gap-14 lg:gap-16'>
+            <InvoiceListHeader />
+            
+            <div className="flex flex-col gap-2">
+                {data.map((invoice) => (
+                    <InvoiceCard key={invoice.id} invoice={invoice} />
+                ))}
+            </div>
+        </section>
     );
 };
 

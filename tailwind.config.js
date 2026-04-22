@@ -100,6 +100,9 @@ export default {
       boxShadow: {
         variant: "var(--shadow-main)",
       },
+      screens: {
+        'xs': '320px',
+      },
     },
   },
   plugins: [],
