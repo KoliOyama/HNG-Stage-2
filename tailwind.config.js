@@ -98,7 +98,11 @@ export default {
         6: "48px",
       },
       boxShadow: {
-        variant: "var(--shadow-main)",
+        variant: "var(--shadow-variant)",
+        card: "var(--shadow-card)",
+      },
+      screens: {
+        'xs': '320px',
       },
     },
   },
