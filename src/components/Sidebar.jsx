@@ -13,7 +13,7 @@ const Sidebar = () => {
             <div className="relative flex items-center justify-center bg-interactive-primary w-[72px] h-[72px] md:w-[80px] md:h-[80px] lg:w-full lg:h-[103px] rounded-r-[20px] overflow-hidden group cursor-pointer">
                 {/* The "Lip" at the bottom of the logo */}
                 <div className="absolute bottom-0 left-0 w-full h-1/2 bg-interactive-primary-light rounded-tl-[20px] transition-all duration-300 group-hover:h-full group-hover:rounded-none" />
-                <img src={logo} alt="Invoice App Logo" className="relative z-10 w-7 h-7 md:w-8 md:h-8" />
+                <img src={logo} alt="Invoice App Logo" className="relative z-10 w- h-7 md:w-8 md:h-8" />
             </div>
 
             {/* Actions Section (Theme Toggle + Profile) */}

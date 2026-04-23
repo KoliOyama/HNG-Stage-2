@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InvoiceListHeader from '@/components/InvoiceListHeader';
 import InvoiceCard from '@/components/InvoiceCard';
 import { EmptyState } from '@/components/EmptyState';
+import InvoiceForm from '@/components/InvoiceForm';
 import data from '@/data.json';
 
 const InvoiceListPage = () => {
-    const [selectedFilters, setSelectedFilters] = React.useState([]);
+    const [selectedFilters, setSelectedFilters] = useState([]);
+    const [isFormOpen, setIsFormOpen] = useState(false);
 
     const handleFilterChange = (status) => {
         setSelectedFilters(prev => 
@@ -27,6 +29,7 @@ const InvoiceListPage = () => {
                 count={filteredInvoices.length} 
                 selectedFilters={selectedFilters} 
                 onFilterChange={handleFilterChange} 
+                onNewInvoice={() => setIsFormOpen(true)}
             />
             
             <div className="flex flex-col gap-2">
@@ -38,9 +41,10 @@ const InvoiceListPage = () => {
                     <EmptyState />
                 )}
             </div>
+
+            <InvoiceForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
         </section>
     );
 };
 
 export default InvoiceListPage;
-

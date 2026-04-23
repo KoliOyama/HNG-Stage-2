@@ -3,7 +3,7 @@ import { PlusIcon } from '@heroicons/react/24/solid';
 import Button from '@/components/Button';
 import FilterDropdown from '@/components/FilterDropdown';
 
-const InvoiceListHeader = ({ count, selectedFilters, onFilterChange }) => {
+const InvoiceListHeader = ({ count, selectedFilters, onFilterChange, onNewInvoice }) => {
     return (
         <header className="flex items-center justify-between">
             <div>
@@ -27,7 +27,7 @@ const InvoiceListHeader = ({ count, selectedFilters, onFilterChange }) => {
                 />
 
                 {/* New Invoice Button */}
-                <Button icon={PlusIcon}>
+                <Button icon={PlusIcon} onClick={onNewInvoice}>
                     New <span className="hidden md:inline">Invoice</span>
                 </Button>
             </div>

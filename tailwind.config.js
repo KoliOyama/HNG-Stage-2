@@ -14,6 +14,7 @@ export default {
         surface: {
           default: "var(--surface-default)",
           card: "var(--surface-card)",
+          drawer: "var(--surface-drawer)",
           sidebar: "var(--surface-sidebar)",
           table: "var(--surface-table)",
           footer: "var(--surface-footer)",
@@ -41,6 +42,11 @@ export default {
             DEFAULT: "var(--int-secondary-bg)",
             text: "var(--int-secondary-text)",
             hover: "var(--int-secondary-hover)",
+          },
+          tertiary: {
+            DEFAULT: "var(--int-tertiary-bg)",
+            text: "var(--int-tertiary-text)",
+            hover: "var(--int-tertiary-hover)",
           },
           draft: {
             DEFAULT: "var(--int-draft-bg)",
@@ -96,6 +102,7 @@ export default {
         4: "32px",
         5: "40px",
         6: "48px",
+        7: "56px",
       },
       boxShadow: {
         variant: "var(--shadow-variant)",

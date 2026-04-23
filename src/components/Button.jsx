@@ -4,13 +4,18 @@ const Button = ({ children, variant = 'primary', icon: Icon, onClick, className 
     const variantClasses = {
         primary: 'btn-primary',
         secondary: 'btn-secondary',
+        tertiary: 'btn-tertiary',
         danger: 'btn-danger',
         draft: 'btn-draft'
     };
 
     return (
         <button 
-            className={`${variantClasses[variant]} ${className} group`} 
+            className={`
+                ${variantClasses[variant]} 
+                ${Icon ? 'pl-1 pr-3 md:pr-4 gap-1 md:gap-2' : 'px-3'} 
+                ${className} group
+            `} 
             onClick={onClick}
             {...props}
         >
