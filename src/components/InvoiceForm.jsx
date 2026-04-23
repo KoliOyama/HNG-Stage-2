@@ -32,13 +32,14 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
 
     const { addInvoice, updateInvoice } = useInvoices();
     
-    const handleSubmit = (values, { setSubmitting }) => {
+    const handleSubmit = (values, { setSubmitting, resetForm }) => {
         if (isEditMode) {
             updateInvoice(invoice.id, values);
         } else {
             addInvoice(values);
         }
         setSubmitting(false);
+        resetForm();
         onClose();
     };
 
@@ -49,15 +50,21 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
             onSubmit={handleSubmit}
             enableReinitialize
         >
-            {({ values, errors, touched, isSubmitting, setFieldValue }) => (
+            {({ values, errors, touched, isSubmitting, resetForm }) => {
+                const handleClose = () => {
+                    resetForm();
+                    onClose();
+                };
+
+                return (
                 <Drawer 
                     isOpen={isOpen} 
-                    onClose={onClose} 
+                    onClose={handleClose} 
                     title={
                         <div className="flex flex-col gap-6">
                             <button 
                                 type="button"
-                                onClick={onClose}
+                                onClick={handleClose}
                                 className="flex items-center gap-6 md:hidden group"
                             >
                                 <ChevronLeftIcon className="w-4 h-4 text-interactive-primary" />
@@ -77,7 +84,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                             <Button 
                                 variant="tertiary" 
                                 type="button" 
-                                onClick={onClose}
+                                onClick={handleClose}
                             >
                                 {isEditMode ? 'Cancel' : 'Discard'}
                             </Button>
@@ -89,7 +96,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                         type="button"
                                         onClick={() => {
                                             addInvoice(values, true);
-                                            onClose();
+                                            handleClose();
                                         }}
                                     >
                                         Save as Draft
@@ -98,6 +105,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                 <Button 
                                     variant="primary" 
                                     type="submit"
+                                    form="invoice-form"
                                     disabled={isSubmitting}
                                 >
                                     {isEditMode ? 'Save Changes' : 'Save & Send'}
@@ -106,7 +114,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                         </div>
                     }
                 >
-                    <Form className="flex flex-col gap-10">
+                    <Form id="invoice-form" className="flex flex-col gap-10">
                         {/* Bill From Section */}
                         <fieldset className="flex flex-col gap-12">
                             <legend className="text-h-s-variant text-interactive-primary mb-12">Bill From</legend>
@@ -137,7 +145,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
 
                         {/* Invoice Details */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <DatePicker label="Invoice Date" name="createdAt" disabled={isEditMode} />
+                            <DatePicker label="Invoice Date" name="createdAt" />
                             <FormSelect label="Payment Terms" name="paymentTerms" options={paymentOptions} />
                         </div>
                         <FormField label="Project Description" name="description" placeholder="e.g. Graphic Design Service" />
@@ -198,7 +206,8 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                         </fieldset>
                     </Form>
                 </Drawer>
-            )}
+                );
+            }}
         </Formik>
     );
 };
