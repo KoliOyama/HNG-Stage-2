@@ -5,6 +5,7 @@ import { invoiceSchema } from '@/utils/validateSchema';
 import Drawer from '@/components/Drawer';
 import FormField from '@/components/FormField';
 import FormSelect from '@/components/FormSelect';
+import DatePicker from '@/components/DatePicker';
 import Button from '@/components/Button';
 
 const InvoiceForm = ({ isOpen, onClose, invoice }) => {
@@ -130,7 +131,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
 
                         {/* Invoice Details */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <FormField label="Invoice Date" name="createdAt" type="date" disabled={isEditMode} />
+                            <DatePicker label="Invoice Date" name="createdAt" disabled={isEditMode} />
                             <FormSelect label="Payment Terms" name="paymentTerms" options={paymentOptions} />
                         </div>
                         <FormField label="Project Description" name="description" placeholder="e.g. Graphic Design Service" />
