@@ -3,9 +3,10 @@ import InvoiceListHeader from '@/components/InvoiceListHeader';
 import InvoiceCard from '@/components/InvoiceCard';
 import { EmptyState } from '@/components/EmptyState';
 import InvoiceForm from '@/components/InvoiceForm';
-import data from '@/data.json';
+import { useInvoices } from '@/context/InvoiceContext';
 
 const InvoiceListPage = () => {
+    const { invoices } = useInvoices();
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -18,8 +19,8 @@ const InvoiceListPage = () => {
     };
 
     const filteredInvoices = selectedFilters.length > 0 
-        ? data.filter(invoice => selectedFilters.includes(invoice.status))
-        : data;
+        ? invoices.filter(invoice => selectedFilters.includes(invoice.status))
+        : invoices;
 
     const hasInvoices = filteredInvoices.length > 0;
 

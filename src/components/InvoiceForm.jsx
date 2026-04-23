@@ -7,6 +7,7 @@ import FormField from '@/components/FormField';
 import FormSelect from '@/components/FormSelect';
 import DatePicker from '@/components/DatePicker';
 import Button from '@/components/Button';
+import { useInvoices } from '@/context/InvoiceContext';
 
 const InvoiceForm = ({ isOpen, onClose, invoice }) => {
     const isEditMode = !!invoice;
@@ -29,9 +30,14 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
         { label: 'Net 30 Days', value: 30 },
     ];
 
+    const { addInvoice, updateInvoice } = useInvoices();
+    
     const handleSubmit = (values, { setSubmitting }) => {
-        console.log('Form Values:', values);
-        // Logic for adding/updating will go here when we connect the context
+        if (isEditMode) {
+            updateInvoice(invoice.id, values);
+        } else {
+            addInvoice(values);
+        }
         setSubmitting(false);
         onClose();
     };
@@ -82,7 +88,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                         variant="draft" 
                                         type="button"
                                         onClick={() => {
-                                            // Handle Save as Draft logic
+                                            addInvoice(values, true);
                                             onClose();
                                         }}
                                     >
