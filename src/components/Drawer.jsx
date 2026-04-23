@@ -56,7 +56,7 @@ const Drawer = ({ isOpen, onClose, title, children, footer }) => {
                 </div>
 
                 {/* Footer - Fixed at bottom */}
-                <footer className="px-6 md:px-14 py-8 md:py-12 bg-surface-drawer shadow-[0_-10px_20px_rgba(72,84,159,0.1)] lg:rounded-br-[20px]">
+                <footer className="px-4 md:px-14 py-8 md:py-12 bg-surface-drawer shadow-[0_-10px_20px_rgba(72,84,159,0.1)] lg:rounded-br-[20px]">
                     {footer}
                 </footer>
             </aside>

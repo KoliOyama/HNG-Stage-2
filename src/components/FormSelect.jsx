@@ -82,7 +82,7 @@ const FormSelect = ({ label, options, ...props }) => {
                     aria-expanded={isOpen}
                 >
                     <span>{displayValue}</span>
-                    <ChevronDownIcon className={`w-3 h-3 text-interactive-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDownIcon className={`w-4 h-4 text-interactive-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isOpen && (
