@@ -21,7 +21,7 @@ const Sidebar = () => {
                 {/* Theme Toggle */}
                 <button 
                     onClick={toggleTheme}
-                    className="flex items-center justify-center p-3 md:p-8 lg:p-0 lg:py-8 lg:w-full transition-all duration-300 hover:opacity-80"
+                    className="flex items-center justify-center p-6 md:p-8 lg:p-0 lg:py-8 lg:w-full transition-all duration-300 hover:opacity-80"
                     aria-label="Toggle Theme"
                 >
                     <img 
@@ -35,7 +35,7 @@ const Sidebar = () => {
                 <div className="w-[1px] h-[72px] md:h-[80px] bg-[#494E6E] lg:w-full lg:h-[1px]" />
 
                 {/* Profile Section */}
-                <div className="flex items-center justify-center p-3 md:p-8 lg:p-0 lg:py-6 lg:w-full">
+                <div className="flex items-center justify-center p-6 md:p-8 lg:p-0 lg:py-12 lg:w-full">
                     <img 
                         src={pfp} 
                         alt="User Profile" 

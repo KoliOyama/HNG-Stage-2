@@ -7,6 +7,7 @@
     /* Surface & Backgrounds */
     --surface-default: #F8F8FB;
     --surface-card: #FFFFFF;
+    --surface-drawer: #FFFFFF;
     --surface-sidebar: #373B53;
     --surface-table: #F9FAFE;
     --surface-footer: #373B53;
@@ -31,10 +32,15 @@
     --int-danger: #EC5757;
     --int-danger-light: #FF9797;
 
-    /* Secondary Button (Edit) */
+    /* Secondary Button (Edit/Add Item) */
     --int-secondary-bg: #F9FAFE;
     --int-secondary-text: #7E88C3;
     --int-secondary-hover: #DFE3FA;
+
+    /* Tertiary Button (Discard/Cancel) */
+    --int-tertiary-bg: #F9FAFE;
+    --int-tertiary-text: #7E88C3;
+    --int-tertiary-hover: #DFE3FA;
 
     /* Draft Button (Save as Draft) */
     --int-draft-bg: #373B53;
@@ -60,6 +66,7 @@
     /* Surface & Backgrounds */
     --surface-default: #141625;
     --surface-card: #1E2139;
+    --surface-drawer: #141625;
     --surface-sidebar: #1E2139;
     --surface-table: #252945;
     --surface-footer: #0C0E16;
@@ -72,10 +79,15 @@
     --status-draft: #DFE3FA;
     --status-draft-bg: rgba(223, 227, 250, 0.06);
 
-    /* Secondary Button (Dark mode) */
+    /* Secondary Button (Edit/Add Item) */
     --int-secondary-bg: #252945;
-    --int-secondary-text: #DFE3FA;
+    --int-secondary-text: #7E88C3;
     --int-secondary-hover: #FFFFFF;
+
+    /* Tertiary Button (Discard/Cancel) */
+    --int-tertiary-bg: #252945;
+    --int-tertiary-text: #7E88C3;
+    --int-tertiary-hover: #FFFFFF;
 
     /* Draft Button (Dark mode) */
     --int-draft-bg: #363B53;
@@ -97,24 +109,51 @@
   body {
     @apply bg-surface-default text-content-primary font-spartan transition-colors duration-300;
   }
+
+  /* Custom Scrollbar Utility */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--input-border);
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--content-secondary);
+  }
+
+  /* Hide number input spin buttons */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
 }
 
 @layer components {
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-1 md:gap-2 rounded-full font-spartan text-h-s-variant transition-all duration-200 cursor-pointer h-6 pl-1 pr-2;
+    @apply inline-flex items-center justify-center rounded-full font-spartan text-h-s-variant transition-all duration-200 cursor-pointer px-6 h-12;
   }
   
   .btn-primary   { @apply btn bg-interactive-primary text-content-inverted hover:bg-interactive-primary-light; }
   .btn-secondary { @apply btn bg-interactive-secondary text-interactive-secondary-text hover:bg-interactive-secondary-hover; }
+  .btn-tertiary  { @apply btn bg-interactive-tertiary text-interactive-tertiary-text hover:bg-interactive-tertiary-hover; }
   .btn-danger    { @apply btn bg-interactive-danger text-content-inverted hover:bg-interactive-danger-light; }
   .btn-draft     { @apply btn bg-interactive-draft text-interactive-draft-text hover:bg-interactive-draft-hover; }
 
   /* Status Badges */
   .status-badge { 
-    @apply inline-flex items-center justify-center gap-1 rounded-md h-10 text-h-s-variant capitalize w-[104px]; 
+    @apply inline-flex items-center justify-center gap-2 rounded-md h-10 text-h-s-variant capitalize w-[104px]; 
   }
-  .status-badge__dot { @apply w-1 h-1 rounded-full; }
+  .status-badge__dot { @apply w-2 h-2 rounded-full; }
   
   .status-badge--paid    { @apply bg-status-paid-muted text-status-paid; }
   .status-badge--pending { @apply bg-status-pending-muted text-status-pending; }

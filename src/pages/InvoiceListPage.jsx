@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InvoiceListHeader from '@/components/InvoiceListHeader';
 import InvoiceCard from '@/components/InvoiceCard';
 import { EmptyState } from '@/components/EmptyState';
-import data from '@/data.json';
+import InvoiceForm from '@/components/InvoiceForm';
+import { useInvoices } from '@/context/InvoiceContext';
 
 const InvoiceListPage = () => {
-    const [selectedFilters, setSelectedFilters] = React.useState([]);
+    const { invoices } = useInvoices();
+    const [selectedFilters, setSelectedFilters] = useState([]);
+    const [isFormOpen, setIsFormOpen] = useState(false);
 
     const handleFilterChange = (status) => {
         setSelectedFilters(prev => 
@@ -16,20 +19,21 @@ const InvoiceListPage = () => {
     };
 
     const filteredInvoices = selectedFilters.length > 0 
-        ? data.filter(invoice => selectedFilters.includes(invoice.status))
-        : data;
+        ? invoices.filter(invoice => selectedFilters.includes(invoice.status))
+        : invoices;
 
     const hasInvoices = filteredInvoices.length > 0;
 
     return (
-        <section className='flex flex-col gap-4 md:gap-14 lg:gap-16'>
+        <section className='flex flex-col gap-8 md:gap-14 lg:gap-16'>
             <InvoiceListHeader 
                 count={filteredInvoices.length} 
                 selectedFilters={selectedFilters} 
                 onFilterChange={handleFilterChange} 
+                onNewInvoice={() => setIsFormOpen(true)}
             />
             
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
                 {hasInvoices ? (
                     filteredInvoices.map((invoice) => (
                         <InvoiceCard key={invoice.id} invoice={invoice} />
@@ -38,9 +42,10 @@ const InvoiceListPage = () => {
                     <EmptyState />
                 )}
             </div>
+
+            <InvoiceForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
         </section>
     );
 };
 
 export default InvoiceListPage;
-
