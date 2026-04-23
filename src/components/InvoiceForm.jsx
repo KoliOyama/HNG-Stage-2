@@ -154,8 +154,8 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                                 <div className="col-span-3 md:col-span-1">
                                                     <FormField label="Item Name" name={`items.${index}.name`} hideLabelOnDesktop />
                                                 </div>
-                                                <FormField label="Qty." name={`items.${index}.quantity`} type="number" hideLabelOnDesktop />
-                                                <FormField label="Price" name={`items.${index}.price`} type="number" hideLabelOnDesktop />
+                                                <FormField label="Qty." name={`items.${index}.quantity`} type="number" hideLabelOnDesktop px="px-2" />
+                                                <FormField label="Price" name={`items.${index}.price`} type="number" hideLabelOnDesktop px="px-4" />
                                                 
                                                 <div className="flex flex-col gap-4">
                                                     <span className="md:hidden text-body-m text-content-secondary">Total</span>

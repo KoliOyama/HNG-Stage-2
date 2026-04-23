@@ -1,7 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
 
-const FormField = ({ label, hideLabelOnDesktop, ...props }) => {
+const FormField = ({ label, hideLabelOnDesktop, px = 'px-5', ...props }) => {
     const [field, meta] = useField(props);
     const hasError = meta.touched && meta.error;
 
@@ -24,7 +24,7 @@ const FormField = ({ label, hideLabelOnDesktop, ...props }) => {
                 {...field}
                 {...props}
                 className={`
-                    w-full h-12 px-5 rounded-[4px] border outline-none transition-all font-bold text-h-s-variant text-content-primary bg-input-bg
+                    w-full h-12 ${px} rounded-[4px] border outline-none transition-all font-bold text-h-s-variant text-content-primary bg-input-bg
                     ${hasError 
                         ? 'border-interactive-danger focus:border-interactive-danger' 
                         : 'border-input-border focus:border-interactive-primary'}
