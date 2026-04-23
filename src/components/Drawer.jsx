@@ -35,9 +35,9 @@ const Drawer = ({ isOpen, onClose, title, children, footer }) => {
             {/* Drawer Panel */}
             <aside 
                 className={`
-                    relative bg-surface-drawer shadow-variant transform transition-transform duration-500 ease-in-out flex flex-col
-                    w-full h-[calc(100vh-72px)] top-[72px]
-                    md:h-[calc(100vh-80px)] md:top-[80px] md:max-w-[616px]
+                    absolute bg-surface-drawer shadow-variant transform transition-transform duration-500 ease-in-out flex flex-col
+                    w-full top-[72px] bottom-0
+                    md:top-[80px] md:max-w-[616px]
                     lg:h-full lg:top-0 lg:left-[90px] lg:max-w-[719px] lg:rounded-r-[20px]
                 `}
                 role="dialog"
@@ -56,7 +56,7 @@ const Drawer = ({ isOpen, onClose, title, children, footer }) => {
                 </div>
 
                 {/* Footer - Fixed at bottom */}
-                <footer className="px-4 md:px-14 py-8 md:py-12 bg-surface-drawer shadow-[0_-10px_20px_rgba(72,84,159,0.1)] lg:rounded-br-[20px]">
+                <footer className="px-4 md:px-14 pb-12 pt-8 md:py-12 bg-surface-drawer shadow-[0_-10px_20px_rgba(72,84,159,0.1)] lg:rounded-br-[20px]">
                     {footer}
                 </footer>
             </aside>

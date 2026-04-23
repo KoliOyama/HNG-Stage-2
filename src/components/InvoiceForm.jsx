@@ -165,8 +165,8 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                         </div>
 
                                         {values.items.map((item, index) => (
-                                            <div key={index} className="grid grid-cols-3 md:grid-cols-[2.5fr_0.6fr_1fr_0.8fr_0.2fr] gap-8 items-end md:items-center">
-                                                <div className="col-span-3 md:col-span-1">
+                                            <div key={index} className="grid grid-cols-[64px_100px_1fr_auto] md:grid-cols-[2.5fr_0.6fr_1fr_0.8fr_0.2fr] gap-2 md:gap-8 items-end md:items-center">
+                                                <div className="col-span-4 md:col-span-1">
                                                     <FormField label="Item Name" name={`items.${index}.name`} hideLabelOnDesktop />
                                                 </div>
                                                 <FormField label="Qty." name={`items.${index}.quantity`} type="number" hideLabelOnDesktop px="px-2" />
