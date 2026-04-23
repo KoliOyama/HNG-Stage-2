@@ -80,7 +80,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                         </div>
                     }
                     footer={
-                        <div className="flex justify-between items-center w-full">
+                        <div className={`flex items-center w-full ${isEditMode ? 'justify-end gap-2' : 'justify-between'}`}>
                             <Button 
                                 variant="tertiary" 
                                 type="button" 
@@ -89,7 +89,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                 {isEditMode ? 'Cancel' : 'Discard'}
                             </Button>
                             
-                            <div className="flex gap-4">
+                            <div className="flex gap-2 md:gap-4">
                                 {!isEditMode && (
                                     <Button 
                                         variant="draft" 

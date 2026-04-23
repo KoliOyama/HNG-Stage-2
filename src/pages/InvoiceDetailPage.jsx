@@ -168,7 +168,7 @@ const InvoiceDetailPage = () => {
             </div>
 
             {/* Mobile Action Bar */}
-            <div className="fixed bottom-0 left-0 right-0 md:hidden bg-surface-card p-6 flex justify-center shadow-[0_-10px_20px_rgba(72,84,159,0.1)]">
+            <div className="fixed bottom-0 left-0 right-0 md:hidden bg-surface-card p-6 flex justify-end shadow-[0_-10px_20px_rgba(72,84,159,0.1)]">
                 <ActionButtons />
             </div>
 

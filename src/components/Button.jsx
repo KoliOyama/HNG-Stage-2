@@ -13,7 +13,7 @@ const Button = ({ children, variant = 'primary', icon: Icon, onClick, className 
         <button 
             className={`
                 ${variantClasses[variant]} 
-                ${Icon ? 'pl-2 pr-6 md:pr-8 gap-2 md:gap-4' : 'px-6'} 
+                ${Icon ? 'pl-2 pr-6 md:pr-8 gap-2 md:gap-4' : 'px-4 md:px-6'} 
                 ${className} group
             `} 
             onClick={onClick}
