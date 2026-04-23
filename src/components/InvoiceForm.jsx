@@ -54,7 +54,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                 onClick={onClose}
                                 className="flex items-center gap-6 md:hidden group"
                             >
-                                <ChevronLeftIcon className="w-2 h-3 text-interactive-primary" />
+                                <ChevronLeftIcon className="w-4 h-4 text-interactive-primary" />
                                 <span className="text-h-s-variant text-content-primary group-hover:text-content-secondary transition-colors">
                                     Go back
                                 </span>
