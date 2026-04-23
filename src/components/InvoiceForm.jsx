@@ -47,11 +47,11 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                     isOpen={isOpen} 
                     onClose={onClose} 
                     title={
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-col gap-6">
                             <button 
                                 type="button"
                                 onClick={onClose}
-                                className="flex items-center gap-3 md:hidden group"
+                                className="flex items-center gap-6 md:hidden group"
                             >
                                 <ChevronLeftIcon className="w-2 h-3 text-interactive-primary" />
                                 <span className="text-h-s-variant text-content-primary group-hover:text-content-secondary transition-colors">
@@ -75,7 +75,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                 {isEditMode ? 'Cancel' : 'Discard'}
                             </Button>
                             
-                            <div className="flex gap-2">
+                            <div className="flex gap-4">
                                 {!isEditMode && (
                                     <Button 
                                         variant="draft" 
@@ -101,10 +101,10 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                 >
                     <Form className="flex flex-col gap-10">
                         {/* Bill From Section */}
-                        <fieldset className="flex flex-col gap-6">
-                            <legend className="text-h-s-variant text-interactive-primary mb-6">Bill From</legend>
+                        <fieldset className="flex flex-col gap-12">
+                            <legend className="text-h-s-variant text-interactive-primary mb-12">Bill From</legend>
                             <FormField label="Street Address" name="senderAddress.street" />
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
                                 <FormField label="City" name="senderAddress.city" />
                                 <FormField label="Post Code" name="senderAddress.postCode" />
                                 <div className="col-span-2 md:col-span-1">
@@ -114,12 +114,12 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                         </fieldset>
 
                         {/* Bill To Section */}
-                        <fieldset className="flex flex-col gap-6">
-                            <legend className="text-h-s-variant text-interactive-primary mb-6">Bill To</legend>
+                        <fieldset className="flex flex-col gap-12">
+                            <legend className="text-h-s-variant text-interactive-primary mb-12">Bill To</legend>
                             <FormField label="Client's Name" name="clientName" />
                             <FormField label="Client's Email" name="clientEmail" placeholder="e.g. email@example.com" />
                             <FormField label="Street Address" name="clientAddress.street" />
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
                                 <FormField label="City" name="clientAddress.city" />
                                 <FormField label="Post Code" name="clientAddress.postCode" />
                                 <div className="col-span-2 md:col-span-1">
@@ -129,19 +129,19 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                         </fieldset>
 
                         {/* Invoice Details */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                             <FormField label="Invoice Date" name="createdAt" type="date" disabled={isEditMode} />
                             <FormSelect label="Payment Terms" name="paymentTerms" options={paymentOptions} />
                         </div>
                         <FormField label="Project Description" name="description" placeholder="e.g. Graphic Design Service" />
 
                         {/* Item List Section */}
-                        <fieldset className="flex flex-col gap-4">
-                            <legend className="text-[18px] font-bold text-[#777F98] mb-4">Item List</legend>
+                        <fieldset className="flex flex-col gap-8">
+                            <legend className="text-[18px] font-bold text-[#777F98] mb-8">Item List</legend>
                             <FieldArray name="items">
                                 {({ push, remove }) => (
-                                    <div className="flex flex-col gap-12 md:gap-4">
-                                        <div className="hidden md:grid grid-cols-[2.5fr_0.6fr_1fr_0.8fr_0.2fr] gap-4 items-center">
+                                    <div className="flex flex-col gap-12 md:gap-8">
+                                        <div className="hidden md:grid grid-cols-[2.5fr_0.6fr_1fr_0.8fr_0.2fr] gap-8 items-center">
                                             <span className="text-body-m text-content-secondary">Item Name</span>
                                             <span className="text-body-m text-content-secondary">Qty.</span>
                                             <span className="text-body-m text-content-secondary">Price</span>
@@ -150,16 +150,16 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                         </div>
 
                                         {values.items.map((item, index) => (
-                                            <div key={index} className="grid grid-cols-3 md:grid-cols-[2.5fr_0.6fr_1fr_0.8fr_0.2fr] gap-4 items-end md:items-center">
+                                            <div key={index} className="grid grid-cols-3 md:grid-cols-[2.5fr_0.6fr_1fr_0.8fr_0.2fr] gap-8 items-end md:items-center">
                                                 <div className="col-span-3 md:col-span-1">
                                                     <FormField label="Item Name" name={`items.${index}.name`} hideLabelOnDesktop />
                                                 </div>
                                                 <FormField label="Qty." name={`items.${index}.quantity`} type="number" hideLabelOnDesktop />
                                                 <FormField label="Price" name={`items.${index}.price`} type="number" hideLabelOnDesktop />
                                                 
-                                                <div className="flex flex-col gap-2">
+                                                <div className="flex flex-col gap-4">
                                                     <span className="md:hidden text-body-m text-content-secondary">Total</span>
-                                                    <div className="h-12 flex items-center text-h-s-variant text-content-tertiary px-2">
+                                                    <div className="h-12 flex items-center text-h-s-variant text-content-tertiary px-4">
                                                         {(item.quantity * item.price || 0).toFixed(2)}
                                                     </div>
                                                 </div>
@@ -169,7 +169,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                                     onClick={() => remove(index)}
                                                     className="h-12 flex items-center justify-center text-content-tertiary hover:text-interactive-danger transition-colors"
                                                 >
-                                                    <TrashIcon className="w-4 h-4" />
+                                                    <TrashIcon className="w-8 h-8" />
                                                 </button>
                                             </div>
                                         ))}
@@ -177,7 +177,7 @@ const InvoiceForm = ({ isOpen, onClose, invoice }) => {
                                         <Button 
                                             variant="secondary" 
                                             type="button" 
-                                            className="w-full mt-4"
+                                            className="w-full mt-8"
                                             onClick={() => push({ name: '', quantity: '', price: '', total: 0 })}
                                         >
                                             + Add New Item

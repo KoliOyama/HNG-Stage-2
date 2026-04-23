@@ -24,7 +24,7 @@ const InvoiceListPage = () => {
     const hasInvoices = filteredInvoices.length > 0;
 
     return (
-        <section className='flex flex-col gap-4 md:gap-14 lg:gap-16'>
+        <section className='flex flex-col gap-8 md:gap-14 lg:gap-16'>
             <InvoiceListHeader 
                 count={filteredInvoices.length} 
                 selectedFilters={selectedFilters} 
@@ -32,7 +32,7 @@ const InvoiceListPage = () => {
                 onNewInvoice={() => setIsFormOpen(true)}
             />
             
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
                 {hasInvoices ? (
                     filteredInvoices.map((invoice) => (
                         <InvoiceCard key={invoice.id} invoice={invoice} />

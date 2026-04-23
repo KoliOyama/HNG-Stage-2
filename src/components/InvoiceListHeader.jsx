@@ -8,7 +8,7 @@ const InvoiceListHeader = ({ count, selectedFilters, onFilterChange, onNewInvoic
         <header className="flex items-center justify-between">
             <div>
                 <h1 className="text-h-m md:text-h-l text-content-primary transition-colors">Invoices</h1>
-                <p className="text-body-m text-content-secondary mt-1">
+                <p className="text-body-m text-content-secondary mt-2">
                     {count === 0 ? (
                         'No invoices'
                     ) : (
@@ -20,7 +20,7 @@ const InvoiceListHeader = ({ count, selectedFilters, onFilterChange, onNewInvoic
                 </p>
             </div>
 
-            <div className="flex items-center gap-2 md:gap-10">
+            <div className="flex items-center gap-4 md:gap-10">
                 <FilterDropdown 
                     selectedFilters={selectedFilters} 
                     onFilterChange={onFilterChange} 

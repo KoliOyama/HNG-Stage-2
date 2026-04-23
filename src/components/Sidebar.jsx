@@ -13,7 +13,7 @@ const Sidebar = () => {
             <div className="relative flex items-center justify-center bg-interactive-primary w-[72px] h-[72px] md:w-[80px] md:h-[80px] lg:w-full lg:h-[103px] rounded-r-[20px] overflow-hidden group cursor-pointer">
                 {/* The "Lip" at the bottom of the logo */}
                 <div className="absolute bottom-0 left-0 w-full h-1/2 bg-interactive-primary-light rounded-tl-[20px] transition-all duration-300 group-hover:h-full group-hover:rounded-none" />
-                <img src={logo} alt="Invoice App Logo" className="relative z-10 w- h-7 md:w-8 md:h-8" />
+                <img src={logo} alt="Invoice App Logo" className="relative z-10 w-7 h-7 md:w-8 md:h-8" />
             </div>
 
             {/* Actions Section (Theme Toggle + Profile) */}
@@ -21,7 +21,7 @@ const Sidebar = () => {
                 {/* Theme Toggle */}
                 <button 
                     onClick={toggleTheme}
-                    className="flex items-center justify-center p-3 md:p-8 lg:p-0 lg:py-8 lg:w-full transition-all duration-300 hover:opacity-80"
+                    className="flex items-center justify-center p-6 md:p-8 lg:p-0 lg:py-8 lg:w-full transition-all duration-300 hover:opacity-80"
                     aria-label="Toggle Theme"
                 >
                     <img 
@@ -35,7 +35,7 @@ const Sidebar = () => {
                 <div className="w-[1px] h-[72px] md:h-[80px] bg-[#494E6E] lg:w-full lg:h-[1px]" />
 
                 {/* Profile Section */}
-                <div className="flex items-center justify-center p-3 md:p-8 lg:p-0 lg:py-6 lg:w-full">
+                <div className="flex items-center justify-center p-6 md:p-8 lg:p-0 lg:py-12 lg:w-full">
                     <img 
                         src={pfp} 
                         alt="User Profile" 

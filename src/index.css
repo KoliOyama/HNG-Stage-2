@@ -129,7 +129,7 @@
 @layer components {
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center rounded-full font-spartan text-h-s-variant transition-all duration-200 cursor-pointer px-3 h-6;
+    @apply inline-flex items-center justify-center rounded-full font-spartan text-h-s-variant transition-all duration-200 cursor-pointer px-6 h-12;
   }
   
   .btn-primary   { @apply btn bg-interactive-primary text-content-inverted hover:bg-interactive-primary-light; }
@@ -140,9 +140,9 @@
 
   /* Status Badges */
   .status-badge { 
-    @apply inline-flex items-center justify-center gap-1 rounded-md h-10 text-h-s-variant capitalize w-[104px]; 
+    @apply inline-flex items-center justify-center gap-2 rounded-md h-10 text-h-s-variant capitalize w-[104px]; 
   }
-  .status-badge__dot { @apply w-1 h-1 rounded-full; }
+  .status-badge__dot { @apply w-2 h-2 rounded-full; }
   
   .status-badge--paid    { @apply bg-status-paid-muted text-status-paid; }
   .status-badge--pending { @apply bg-status-pending-muted text-status-pending; }

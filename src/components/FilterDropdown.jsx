@@ -29,23 +29,23 @@ const FilterDropdown = ({ selectedFilters, onFilterChange }) => {
         <div className="relative" ref={dropdownRef}>
             <button 
                 onClick={toggleDropdown}
-                className="flex items-center gap-3 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive-primary rounded-md p-1"
+                className="flex items-center gap-2 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-interactive-primary rounded-md p-2"
                 aria-expanded={isOpen}
             >
                 <span className="text-h-s-variant text-content-primary">
                     Filter <span className="hidden md:inline">by status</span>
                 </span>
-                <ChevronDownIcon className={`w-3 h-3 text-interactive-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                <ChevronDownIcon className={`w-4 h-4 text-interactive-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isOpen && (
-                <div className="absolute top-full mt-2 right-1/2 translate-x-1/2 md:translate-x-0 md:right-0 bg-surface-card rounded-lg shadow-variant p-3 w-[192px] z-20 transition-all">
-                    <fieldset className="flex flex-col gap-2">
+                <div className="absolute top-full mt-4 right-1/2 translate-x-1/2 md:translate-x-0 md:right-0 bg-surface-card rounded-lg shadow-variant p-6 w-[192px] z-20 transition-all">
+                    <fieldset className="flex flex-col gap-4">
                         <legend className="sr-only">Filter invoices by status</legend>
                         {statuses.map((status) => (
                             <label 
                                 key={status} 
-                                className="flex items-center gap-3 group cursor-pointer"
+                                className="flex items-center gap-6 group cursor-pointer"
                             >
                                 {/* Hidden but accessible native checkbox */}
                                 <input 
@@ -56,7 +56,7 @@ const FilterDropdown = ({ selectedFilters, onFilterChange }) => {
                                 />
                                 
                                 {/* Custom styled checkbox box */}
-                                <div className={`w-2 h-2 rounded-sm border-2 border-transparent transition-all flex items-center justify-center
+                                <div className={`w-4 h-4 rounded-sm border-2 border-transparent transition-all flex items-center justify-center
                                     peer-focus-visible:ring-2 peer-focus-visible:ring-interactive-primary peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-surface-card
                                     ${selectedFilters.includes(status) 
                                         ? 'bg-interactive-primary' 
