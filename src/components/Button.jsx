@@ -13,7 +13,7 @@ const Button = ({ children, variant = 'primary', icon: Icon, onClick, className 
         <button 
             className={`
                 ${variantClasses[variant]} 
-                ${Icon ? 'pl-2 pr-6 md:pr-8 gap-2 md:gap-4' : 'px-3'} 
+                ${Icon ? 'pl-2 pr-6 md:pr-8 gap-2 md:gap-4' : 'px-6'} 
                 ${className} group
             `} 
             onClick={onClick}
@@ -23,13 +23,13 @@ const Button = ({ children, variant = 'primary', icon: Icon, onClick, className 
             {Icon && (
                 <span className="flex items-center justify-center w-8 h-8 bg-white rounded-full transition-all group-hover:rotate-90">
                     {typeof Icon === 'string' ? (
-                        <img src={Icon} alt="" className="w-[24px] h-[24px]" />
+                        <img src={Icon} alt="" className="w-[16px] h-[16px]" />
                     ) : (
-                        <Icon className="w-[24px] h-[24px] text-interactive-primary" />
+                        <Icon className="w-[16px] h-[16px] text-interactive-primary" />
                     )}
                 </span>
             )}
-            <span className="flex-1 text-center whitespace-nowrap">
+            <span className="whitespace-nowrap">
                 {children}
             </span>
         </button>
